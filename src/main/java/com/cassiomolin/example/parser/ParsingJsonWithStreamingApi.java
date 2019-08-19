@@ -111,6 +111,9 @@ public class ParsingJsonWithStreamingApi {
     }
 
     private void doSomethingWithContact(Contact contact) {
+
+        // Nothing much interesting here
+        // Just print the contact
         System.out.println(contact);
     }
 }
