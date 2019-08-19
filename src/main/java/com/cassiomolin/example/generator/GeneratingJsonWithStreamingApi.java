@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import static com.cassiomolin.example.util.ContactDataFactory.janePoe;
@@ -61,6 +62,7 @@ public class GeneratingJsonWithStreamingApi {
         jsonGenerator.writeStringField("lastName", contact.getLastName());
         jsonGenerator.writeFieldName("emails");
         writeEmails(jsonGenerator, contact.getEmails());
+        jsonGenerator.writeStringField("createDateTime", contact.getCreatedDateTime().format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
 
         // Write the end object token
         jsonGenerator.writeEndObject();

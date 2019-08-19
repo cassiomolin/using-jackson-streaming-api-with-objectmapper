@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.JsonToken;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,6 +80,9 @@ public class ParsingJsonWithStreamingApi {
                 case "emails":
                     List<String> emails = readEmails(jsonParser);
                     contact.setEmails(emails);
+                    break;
+                case "createdDateTime":
+                    contact.setCreatedDateTime(OffsetDateTime.parse(jsonParser.getText()));
                     break;
                 // Unknown properties are ignored
             }

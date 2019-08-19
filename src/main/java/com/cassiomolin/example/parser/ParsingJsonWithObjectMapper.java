@@ -3,6 +3,7 @@ package com.cassiomolin.example.parser;
 import com.cassiomolin.example.model.Contact;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,10 +26,9 @@ public class ParsingJsonWithObjectMapper {
     private void parseJson(InputStream is) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-        TypeReference<List<Contact>> typeReference = new TypeReference<>() {
-        };
+        mapper.registerModule(new JavaTimeModule());
 
-        List<Contact> contacts = mapper.readValue(is, typeReference);
+        List<Contact> contacts = mapper.readValue(is, new TypeReference<List<Contact>>() {});
         contacts.forEach(System.out::println);
     }
 }
