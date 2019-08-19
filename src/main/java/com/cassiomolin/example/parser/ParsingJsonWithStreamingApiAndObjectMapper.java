@@ -51,7 +51,7 @@ public class ParsingJsonWithStreamingApiAndObjectMapper {
 
     private Contact readContact(ObjectMapper mapper, JsonParser jsonParser) throws IOException {
 
-        // Read a contact instance using the ObjectMapper
+        // Read a contact instance using ObjectMapper
         return mapper.readValue(jsonParser, Contact.class);
     }
 
