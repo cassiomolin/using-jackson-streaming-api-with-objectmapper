@@ -25,7 +25,8 @@ public class ParsingJsonWithObjectMapper {
     private void parseJson(InputStream is) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
-        TypeReference<List<Contact>> typeReference = new TypeReference<>() {};
+        TypeReference<List<Contact>> typeReference = new TypeReference<>() {
+        };
 
         List<Contact> contacts = mapper.readValue(is, typeReference);
         contacts.forEach(System.out::println);

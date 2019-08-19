@@ -1,7 +1,6 @@
 package com.cassiomolin.example.generator;
 
 import com.cassiomolin.example.model.Contact;
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
